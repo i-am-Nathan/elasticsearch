@@ -420,10 +420,10 @@ public class GetTermVectorsIT extends AbstractTermVectorsTestCase {
                 Settings.builder()
                         .put(indexSettings())
                         .put("index.analysis.analyzer.payload_test.tokenizer", "whitespace")
-                        .putArray("index.analysis.analyzer.payload_test.filter", "my_DELIMITED_PAYLOAD")
-                        .put("index.analysis.filter.my_DELIMITED_PAYLOAD.delimiter", delimiter)
-                        .put("index.analysis.filter.my_DELIMITED_PAYLOAD.encoding", encodingString)
-                        .put("index.analysis.filter.my_DELIMITED_PAYLOAD.type", "DELIMITED_PAYLOAD")));
+                        .putArray("index.analysis.analyzer.payload_test.filter", "my_delimited_payload_filter")
+                        .put("index.analysis.filter.my_delimited_payload_filter.delimiter", delimiter)
+                        .put("index.analysis.filter.my_delimited_payload_filter.encoding", encodingString)
+                        .put("index.analysis.filter.my_delimited_payload_filter.type", "delimited_payload")));
 
         client().prepareIndex("test", "type1", Integer.toString(1))
                 .setSource(jsonBuilder().startObject().field("field", queryString).endObject()).execute().actionGet();
